@@ -4,7 +4,7 @@ import { Repository } from 'typeorm';
 import { Location } from './location.entity';
 import { CreateLocationDto } from './dto/create-location.dto';
 import { Area } from '../areas/area.entity';
-import { LocationLog } from '../logs/log.entity';
+import { LocationLog } from '../location-logs/location-log.entity';
 import { point, polygon } from '@turf/turf';
 import booleanPointInPolygon from '@turf/boolean-point-in-polygon';
 
