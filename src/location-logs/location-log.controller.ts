@@ -1,10 +1,10 @@
 import { Controller, Get } from '@nestjs/common';
-import { LogService } from './log.service';
-import { LocationLog } from './log.entity';
+import { LocationLogService } from './location-log.service';
+import { LocationLog } from './location-log.entity';
 
 @Controller('logs')
-export class LogController {
-  constructor(private readonly logService: LogService) {}
+export class LocationLogController {
+  constructor(private readonly logService: LocationLogService) {}
 
   @Get()
   async getAllLogs(): Promise<LocationLog[]> {

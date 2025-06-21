@@ -4,7 +4,7 @@ import { AppService } from './app.service';
 import { TypeOrmModule } from '@nestjs/typeorm';
 import { AreaModule } from './areas/area.module';
 import { LocationModule } from './locations/location.module';
-import { LogModule } from './logs/log.module';
+import { LocationLogModule } from './location-logs/location-log.module';
 
 @Module({
   imports: [
@@ -21,7 +21,7 @@ import { LogModule } from './logs/log.module';
     }),
     AreaModule,
     LocationModule,
-    LogModule,
+    LocationLogModule,
   ],
   controllers: [AppController],
   providers: [AppService],

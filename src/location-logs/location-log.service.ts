@@ -1,10 +1,10 @@
 import { Injectable } from '@nestjs/common';
 import { InjectRepository } from '@nestjs/typeorm';
-import { LocationLog } from './log.entity';
+import { LocationLog } from './location-log.entity';
 import { Repository } from 'typeorm';
 
 @Injectable()
-export class LogService {
+export class LocationLogService {
   constructor(
     @InjectRepository(LocationLog)
     private logRepository: Repository<LocationLog>,
