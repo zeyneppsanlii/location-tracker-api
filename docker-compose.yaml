@@ -1,0 +1,18 @@
+version: '3.8'
+
+services:
+  postgres:
+    image: postgis/postgis:17-3.4  # PostgreSQL 17 + PostGIS 3.4
+    container_name: location-postgis
+    restart: always
+    ports:
+      - "5432:5432"
+    environment:
+      POSTGRES_DB: locationdb
+      POSTGRES_USER: postgres
+      POSTGRES_PASSWORD: postgres
+    volumes:
+      - pgdata:/var/lib/postgresql/data
+
+volumes:
+  pgdata:
