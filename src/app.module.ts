@@ -1,13 +1,17 @@
 import { Module } from '@nestjs/common';
-import { AppController } from './app.controller';
-import { AppService } from './app.service';
+import { ConfigModule } from '@nestjs/config';
 import { TypeOrmModule } from '@nestjs/typeorm';
+
 import { AreaModule } from './areas/area.module';
 import { LocationModule } from './locations/location.module';
 import { LocationLogModule } from './location-logs/location-log.module';
 
 @Module({
   imports: [
+    ConfigModule.forRoot({
+      isGlobal: true,
+      envFilePath: '.env',
+    }),
     TypeOrmModule.forRoot({
       type: 'postgres',
       host: process.env.DB_HOST,
@@ -17,13 +21,11 @@ import { LocationLogModule } from './location-logs/location-log.module';
       database: process.env.DB_NAME,
       entities: [__dirname + '/**/*.entity{.ts,.js}'],
       synchronize: false,
-      migrations: ['src/migrations/*.ts'],
+      autoLoadEntities: true,
     }),
     AreaModule,
     LocationModule,
     LocationLogModule,
   ],
-  controllers: [AppController],
-  providers: [AppService],
 })
 export class AppModule {}

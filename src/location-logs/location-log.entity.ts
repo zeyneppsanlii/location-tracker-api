@@ -7,6 +7,7 @@ import {
   JoinColumn,
 } from 'typeorm';
 import { Area } from '../areas/area.entity';
+import { Location } from '../locations/location.entity';
 
 @Entity()
 export class LocationLog {
@@ -23,6 +24,10 @@ export class LocationLog {
   @JoinColumn({ name: 'area_id' })
   area: Area;
 
+  @ManyToOne(() => Location, { onDelete: 'CASCADE' })
+  @JoinColumn({ name: 'location_id' })
+  location: Location;
+
   @CreateDateColumn()
-  entered_at: Date;
+  created_at: Date;
 }

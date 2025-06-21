@@ -51,6 +51,7 @@ export class LocationService {
         const log: LocationLog = this.locationLogRepository.create({
           user_id,
           area_id: area.id,
+          location: savedLocation,
         });
 
         await this.locationLogRepository.save(log);

@@ -12,8 +12,8 @@ export class LocationLogService {
 
   async findAll(): Promise<LocationLog[]> {
     return this.logRepository.find({
-      relations: ['area'],
-      order: { entered_at: 'DESC' },
+      relations: ['area', 'location'],
+      order: { created_at: 'DESC' },
     });
   }
 }

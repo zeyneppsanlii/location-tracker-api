@@ -7,8 +7,18 @@ export class CreateAreaDto {
   @IsNotEmpty()
   name: string;
 
-  @ApiProperty()
+  @ApiProperty({
+    example: [
+      [
+        [32.7502, 39.8946],
+        [32.751, 39.8946],
+        [32.751, 39.8955],
+        [32.7502, 39.8955],
+        [32.7502, 39.8946],
+      ],
+    ],
+  })
   @IsArray()
   @IsNotEmpty()
-  polygon: number[][][]; // GeoJSON coordinates [[[[lon, lat], [lon, lat], [lon, lat], [lon, lat], [lon, lat]]]]
+  polygon: number[][][];
 }

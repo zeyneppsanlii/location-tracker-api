@@ -18,7 +18,10 @@ export class Area {
     spatialFeatureType: 'Polygon',
     srid: 4326,
   })
-  polygon: object; // veya GeoJSON için 'any'
+  polygon: {
+    type: string;
+    coordinates: number[][][];
+  };
 
   @CreateDateColumn()
   created_at: Date;
