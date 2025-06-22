@@ -1,10 +1,12 @@
 import { Module } from '@nestjs/common';
 import { ConfigModule } from '@nestjs/config';
 import { TypeOrmModule } from '@nestjs/typeorm';
+import { BullModule } from '@nestjs/bull';
 
 import { AreaModule } from './areas/area.module';
 import { LocationModule } from './locations/location.module';
 import { LocationLogModule } from './location-logs/location-log.module';
+import { QueueUiModule } from './queue-ui/queue-ui.module';
 
 @Module({
   imports: [
@@ -23,9 +25,17 @@ import { LocationLogModule } from './location-logs/location-log.module';
       synchronize: false,
       autoLoadEntities: true,
     }),
+
+    BullModule.forRoot({
+      redis: {
+        host: process.env.REDIS_HOST,
+        port: Number(process.env.REDIS_PORT),
+      },
+    }),
     AreaModule,
     LocationModule,
     LocationLogModule,
+    QueueUiModule,
   ],
 })
 export class AppModule {}
