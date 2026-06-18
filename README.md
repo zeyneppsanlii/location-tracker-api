@@ -25,6 +25,21 @@
 
 [Nest](https://github.com/nestjs/nest) framework TypeScript starter repository.
 
+# location-tracker
+
+İki servisten oluşan bir konum takip sistemi:
+- **location-tracker-api**: REST API katmanı
+- **location-tracker-ms**: Olay tabanlı işleme servisi
+
+## Tech Stack
+- Node.js, TypeScript
+- Apache Kafka (servisler arası asenkron iletişim)
+- Redis (cache ve hızlı erişim)
+- PostgreSQL + PostGIS (konum verisi ve geospatial sorgular)
+
+## Status
+Aktif geliştirme aşamasında; deploy edilmiş bir versiyonu bulunmuyor.
+
 ## Project setup
 
 ```bash
