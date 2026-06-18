@@ -27,18 +27,18 @@
 
 # location-tracker
 
-İki servisten oluşan bir konum takip sistemi:
-- **location-tracker-api**: REST API katmanı
-- **location-tracker-ms**: Olay tabanlı işleme servisi
+A two-service location tracking system:
+- **location-tracker-api**: REST API layer
+- **location-tracker-ms**: Event-based processing service
 
 ## Tech Stack
 - Node.js, TypeScript
-- Apache Kafka (servisler arası asenkron iletişim)
-- Redis (cache ve hızlı erişim)
-- PostgreSQL + PostGIS (konum verisi ve geospatial sorgular)
+- Apache Kafka (asynchronous inter-service communication)
+- Redis (caching and fast lookups)
+- PostgreSQL + PostGIS (location data and geospatial queries)
 
 ## Status
-Aktif geliştirme aşamasında; deploy edilmiş bir versiyonu bulunmuyor.
+Active development; no deployed version available.
 
 ## Project setup
 
